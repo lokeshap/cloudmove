@@ -1,0 +1,48 @@
+# BELOW PARAMETERS ARE MANDATORY. PLEASE DONT DELETE THEM
+#Basic config details of migration
+Host_Connect_Timeout : 70  # Default timeout to connect to host
+Read_Connect_Timeout : 120  # Default timeout to read the object in a bucket
+Bucket_Name: 'averedata1'  # keys from the bucket to be copied
+Number_of_Process : 20 # Number of objects to send at a time .
+Number_of_Thread : 0 # Recommended. If 0, default number of threads will be considered by boto3 library
+Number_of_Keys : 0 # If 0, all keys in the bucket will get copied. Else you can specify specific number of objects to be copied. e.g. 30
+Operation_Type: 'copy' #  copy to migrate , restart to from where it is left , increment from where it left
+Email_ID : 'Lokesh.AP@sandisk.com'
+#AA Source and Destination details
+#Source_Host_Details:
+Destination_Host_Details:
+        Host_Name: 'amp1'
+        endpoint_url: 'http://10.60.207.50:9090'
+        ip: '10.60.207.50'
+        port: 9090
+        aws_access_key_id: 'lokesh'
+        aws_secret_access_key: 'lokesh'
+#Destination_Host_Details:
+Source_Host_Details:
+        Host_Name: 'aa2-mm'
+        endpoint_url: 'http://10.60.207.190:80'
+        ip: '10.60.207.190'
+        port: 80
+        aws_access_key_id: 'AK0ZPXJGBIAJYNAZZ2SA'
+        aws_secret_access_key: 'mqrCX14uh4432ljOISXv5kewj7mlBehKnTCjnyQW'
+#Mongo database details are mentioned here
+DB_IP: '10.60.207.68'
+DB_user: 'hgst'
+DB_password: 'hgst123'
+DB_name: 'test'
+#List of hosts where we will be distributing the keys to move objects
+Node1: '10.60.207.69'
+Node2: '10.60.207.70'
+Node3: '10.60.207.71'
+Node4: '10.60.207.66'
+Node5: '10.60.207.61'
+Node6: '10.60.207.62'
+No_of_Nodes: 3
+Username: 'root'
+Password: 'sandisk123'
+#Multipart configuration
+Multipart_Size:      64000000
+Multipart_threshold: 64000000
+IO_chucksize:        10000000
+Max_concurrency:      10
+Use_Threads: 'True'
